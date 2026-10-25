@@ -20,10 +20,26 @@ export function AuthProvider({ children }) {
 
   // live alerts for officers / admins
   useEffect(() => {
+    const token = localStorage.getItem('vd_token');
+    if (!user || !token) return;
+
+    // On Vercel without custom socket server, skip socket polling to avoid 404 console errors
+    const isVercel = typeof window !== 'undefined' && window.location.hostname.endsWith('vercel.app');
+    if (isVercel && !import.meta.env.VITE_SOCKET_URL) {
+      return;
+    }
+
     const socketEndpoint = import.meta.env.VITE_SOCKET_URL || (import.meta.env.VITE_API_BASE_URL ? import.meta.env.VITE_API_BASE_URL.replace(/\/api\/?$/, '') : undefined);
-    const s = io(socketEndpoint, { auth: { token: localStorage.getItem('vd_token') } });
+    const s = io(socketEndpoint, {
+      auth: { token },
+      reconnectionAttempts: 2,
+      timeout: 5000,
+    });
     socketRef.current = s;
     s.on('alert', (a) => toast(a.text, a.level));
+    s.on('connect_error', () => {
+      // Silently handle if socket server is unavailable
+    });
     return () => s.disconnect();
   }, [user, toast]);
 

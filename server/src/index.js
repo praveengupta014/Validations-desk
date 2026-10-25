@@ -28,9 +28,20 @@ io.use((socket, next) => {
 io.on('connection', (s) => { if (s.data.role !== 'institute') s.join('staff'); });
 
 app.use(helmet({ crossOriginResourcePolicy: false }));
-app.use(cors({ origin, credentials: true }));
-app.use(express.json({ limit: '1mb' }));
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json({ limit: '10mb' }));
 app.use(morgan('dev'));
+
+// Ensure DB is connected before processing requests (critical for Vercel Serverless)
+app.use(async (_req, _res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('Database connection error:', err);
+    next(err);
+  }
+});
 
 app.get('/api/health', (_req, res) => res.json({ ok: true, db: mongoose.connection.readyState === 1 }));
 app.use('/api/auth', authRoutes);
