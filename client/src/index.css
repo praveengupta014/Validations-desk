@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply font-sans antialiased; }
+  body { @apply bg-slate-50 text-slate-800; }
+  ::selection { @apply bg-brand-200; }
+}
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700 active:scale-[.98]; }
+  .btn-ghost { @apply btn bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50; }
+  .btn-danger { @apply btn bg-rose-600 text-white hover:bg-rose-700; }
+  .btn-ok { @apply btn bg-emerald-600 text-white hover:bg-emerald-700; }
+  .card { @apply rounded-2xl bg-white shadow-soft ring-1 ring-slate-100; }
+  .input { @apply w-full rounded-xl border-0 bg-white px-3.5 py-2.5 text-sm text-slate-800 ring-1 ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-brand-500 outline-none transition; }
+  .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500; }
+  .grid-bg { background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 22px 22px; }
+}

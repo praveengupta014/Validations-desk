@@ -1,0 +1,33 @@
+# AICTE Validation Desk - Pluggable AI/ML Microservice
+# Aligned with PS 26261 (Smart India Hackathon 2026) Architecture
+
+# FastAPI & Asynchronous Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+python-multipart>=0.0.9
+httpx>=0.27.0
+
+# Computer Vision & Forensic Image Processing (OpenCV)
+opencv-python-headless>=4.9.0.80
+pillow>=10.2.0
+numpy>=1.26.0
+
+# Document & PDF Processing
+pypdf>=4.1.0
+
+# Machine Learning & Anomaly Detection (scikit-learn)
+scikit-learn>=1.4.0
+scipy>=1.12.0
+
+# High-Performance Fuzzy String Matching (RapidFuzz)
+rapidfuzz>=3.6.0
+
+# Perceptual Hashing & Cross-Institute Duplicate Detection
+imagehash>=4.3.1
+PyWavelets>=1.5.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
