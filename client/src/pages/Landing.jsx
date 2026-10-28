@@ -74,7 +74,7 @@ export default function Landing() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-24 pt-36 lg:grid-cols-2">
           <div className="animate-fadeup">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold text-brand-200 ring-1 ring-white/15">
-              <BrainCircuit size={14} /> Smart India Hackathon 2026 · PS 26261 · Team Elitecoder
+              <BrainCircuit size={14} /> Smart India Hackathon 2026 · PS 26261 · Team Kepler_SU
             </span>
             <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl">
               Verify early,<br /><span className="bg-gradient-to-r from-brand-300 via-violet-300 to-fuchsia-300 bg-clip-text text-transparent">decide with confidence.</span>
@@ -252,7 +252,7 @@ export default function Landing() {
       <footer className="border-t border-slate-100 bg-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-8 text-sm text-slate-500 md:flex-row">
           <Logo />
-          <div>Smart India Hackathon 2026 · Problem Statement 26261 · Theme: Smart Automation · Team Elitecoder</div>
+          <div>Smart India Hackathon 2026 · Problem Statement 26261 · Theme: Smart Automation · Team Kepler_SU</div>
         </div>
       </footer>
     </div>
